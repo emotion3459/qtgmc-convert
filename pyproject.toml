@@ -1,0 +1,10 @@
+[project]
+name = "qtgmc-convert"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "vsjetpack[full] @ git+https://github.com/Jaded-Encoding-Thaumaturgy/vs-jetpack.git@c23edfab1ffa5f9b50b84e454a83c19b90c21bba",
+]
+
+[tool.ruff]
+line-length = 120
