@@ -480,7 +480,7 @@ def qtgmc_convert(
         # Scale is Sharpness * (binomial_variance / gaussian_variance);
         # where binomial_variance is the blur used in the original unsharpening
         # and gaussian_variance is the blur used in vs-jetpack's unsharpening.
-        "sharpen__strength": Sharpness * (0.5 / var) if (var := psv.TR1 / 2 + psv.TR2 * (psv.TR2 + 1) / 3) else 0,
+        "sharpen__strength": Sharpness * sqrt((0.5 / var) if (var := psv.TR1 / 2 + psv.TR2 * (psv.TR2 + 1) / 3) else 0),
         "sharpen__offset": (1 if psv.Precise else 0) if psv.SMode == 2 else False,
         "sharpen_limit__mode": _SLMode[psv.SLMode],
         "sharpen_limit__radius": psv.SLRad,
