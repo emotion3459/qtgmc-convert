@@ -483,7 +483,8 @@ def qtgmc_convert(
         "sharpen__strength": Sharpness * sqrt((0.5 / var) if (var := psv.TR1 / 2 + psv.TR2 * (psv.TR2 + 1) / 3) else 0),
         "sharpen__offset": (1 if psv.Precise else 0) if psv.SMode == 2 else False,
         "sharpen_limit__mode": _SLMode[psv.SLMode],
-        "sharpen_limit__radius": psv.SLRad,
+        # SLRad=2 is broken and SLRad=3 is unimplemented in legacy implementations (despite the docs saying its supported)
+        "sharpen_limit__radius": 1 if psv.SLMode in (2, 4) else min(psv.SLRad, 2),
         # Disable SOvs for spatial limiting, AVS/havsfunc don't support it.
         "sharpen_limit__clamp": SOvs if psv.SLMode in (2, 4) else 0,
         # Rescale SVThin to match in vs-jetpack.
