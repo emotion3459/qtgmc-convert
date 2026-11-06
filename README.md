@@ -2,8 +2,6 @@
 
 Automatically converts legacy (AviSynth, havsfunc, etc.) QTGMC settings into a [vs-jetpack](https://github.com/Jaded-Encoding-Thaumaturgy/vs-jetpack) compatible preset.
 
-Temporarily requires git latest of vs-jetpack until a new stable release is made.
-
 ## Note on usage
 This tool is intended solely for matching legacy AviSynth/havsfunc behavior in vs-jetpack.
 vs-jetpack's native defaults provide significantly higher visual quality and faster performance.
